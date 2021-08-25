@@ -34,6 +34,6 @@ levelBtn.addEventListener("click", () => {
 })
 
 const idleGain1 = setInterval(() => {
-  score += level;
+  score += level+2;
   plScore.innerHTML = `Score: ${score}`;
 }, 10000)
