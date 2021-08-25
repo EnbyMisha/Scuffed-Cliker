@@ -6,6 +6,7 @@ const levelUp = document.getElementById("lvl-up");
 const clickBtn = document.getElementById("click-btn");
 const levelBtn = document.getElementById("level-btn");
 
+let gain = 1;
 let score = 0;
 let level = 1;
 let levelCost = 25;
@@ -15,7 +16,7 @@ plLevel.innerHTML = `Level: ${level}`;
 levelUp.innerHTML = `Level cost: ${levelCost}`;
 
 clickBtn.addEventListener("click", () => {
-  score++;
+  score += gain;
   plScore.innerHTML = `Score: ${score}`;
 })
 
@@ -24,6 +25,8 @@ levelBtn.addEventListener("click", () => {
   score -= levelCost;
   level++;
   levelCost += Math.floor(levelCost*0.5);
+
+  if(level % 2 == 0) gain++;
 
   plScore.innerHTML = `Score: ${score}`;
   plLevel.innerHTML = `Level: ${level}`;
