@@ -12,7 +12,6 @@ let level = 1;
 let levelCost = 25;
 let idleSpeed1 = 10000;
 let idleSpeed2 = 10000;
-let startedIdle2 = false;
 
 plScore.innerHTML = `Score: ${score}`;
 plLevel.innerHTML = `Level: ${level}`;
@@ -34,7 +33,7 @@ levelBtn.addEventListener("click", () => {
   if(score < levelCost) return;
   score -= levelCost;
   level++;
-  levelCost += Math.floor(levelCost*0.5);
+  levelCost += Math.floor(levelCost*0.3);
 
   if(level % 2 == 0) gain++;
   if(level % 10 == 0 && idleSpeed1 >= 2001) {
@@ -47,19 +46,13 @@ levelBtn.addEventListener("click", () => {
 })
 
 const idleGain1 = setInterval(() => {
-  score += level+2;
+  score += level+gain;
   plScore.innerHTML = `Score: ${score}`;
 }, idleSpeed1)
 
-idleGain1 *= 2;
-  const idleGain2 =  setInterval(() => {
-    if(level >= 20) {
-      if(!startedIdle2) {
-      idleGain1 *= 2
-      startedIdle2 = true;
-    }
-
-    score += Math.floor((level+(level*0.5)));
+const idleGain2 =  setInterval(() => {
+  if(level >= 20) {
+    score += Math.floor((level+(level*0.5)))+gain;
     plScore.innerHTML = `Score: ${score}`;
-    }
-  }, idleSpeed2)
+  }
+}, idleSpeed2)
