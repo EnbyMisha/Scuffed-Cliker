@@ -5,6 +5,9 @@ const plLevel = document.getElementById("pl-level");
 const levelUp = document.getElementById("lvl-up");
 const clickBtn = document.getElementById("click-btn");
 const levelBtn = document.getElementById("level-btn");
+const reward1 = document.getElementById("reward1");
+
+reward1.style.display = "none";
 
 let gain = 1;
 let score = 0;
@@ -50,7 +53,7 @@ levelBtn.addEventListener("click", () => {
   levelUp.innerHTML = `Level cost: ${levelCost}`;
 })
 
-const idles = setInterval(() => {
+const game = setInterval(() => {
   if(canRunIdle1) {
     score += level+gain;
     plScore.innerHTML = `Score: ${score}`;
@@ -70,4 +73,8 @@ const idles = setInterval(() => {
       }, idleSpeed2);
     }
   }
+
+  if(level >= 10) {
+    reward1.style.display = "inline"
+  };
 }, 5)
