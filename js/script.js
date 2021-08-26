@@ -36,10 +36,10 @@ levelBtn.addEventListener("click", () => {
   levelCost += Math.floor(levelCost*0.3);
 
   if(level % 2 == 0) gain++;
-  if(level % 10 == 0 && idleSpeed1 >= 2001) {
+  if(level % 5 == 0 && idleSpeed1 >= 2001) {
     idleSpeed1 -= 2000;
   }
-  if(level % 20 == 0) {
+  if(level % 10 == 0) {
     gain += Math.round(gain*0.25);
   }
 
