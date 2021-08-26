@@ -52,7 +52,7 @@ const idleGain1 = setInterval(() => {
 
 const idleGain2 =  setInterval(() => {
   if(level >= 20) {
-    score += Math.floor((level+(level*0.5)))+gain;
+    score += level+Math.floor((gain+(gain*0.5)));
     plScore.innerHTML = `Score: ${score}`;
   }
 }, idleSpeed2)
