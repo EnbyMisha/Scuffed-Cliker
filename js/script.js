@@ -39,6 +39,9 @@ levelBtn.addEventListener("click", () => {
   if(level % 10 == 0 && idleSpeed1 >= 2001) {
     idleSpeed1 -= 2000;
   }
+  if(level % 20 == 0) {
+    gain += Math.round(gain*0.25);
+  }
 
   plScore.innerHTML = `Score: ${score}`;
   plLevel.innerHTML = `Level: ${level}`;
